@@ -9,7 +9,7 @@ from data_utils import SortedNumberGenerator
 from os.path import join, basename, dirname, exists
 import keras
 from keras import backend as K
-
+import tensorflow as tf
 
 def network_encoder(x, code_size):
 
@@ -116,7 +116,7 @@ def network_cpc(image_shape, terms, predict_terms, code_size, learning_rate):
 
     # Compile model
     cpc_model.compile(
-        optimizer=keras.optimizers.Adam(lr=learning_rate),
+        optimizer=tf.keras.optimizers.Adam(lr=learning_rate),
         loss='binary_crossentropy',
         metrics=['binary_accuracy']
     )
